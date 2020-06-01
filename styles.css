@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+/* @import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.scss';
+@import '~@swimlane/ngx-datatable/assets/icons.css'; */
+/* @import '~@swimlane/ngx-datatable/index.scss'; */
+/* @import '@swimlane/ngx-datatable/themes/material.scss'; */
+/* @import '~@angular/material/prebuilt-themes/deeppurple-amber.css'; */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~@swimlane/ngx-datatable/index.css';
+@import '~@swimlane/ngx-datatable/themes/material.css';
+@import '~@swimlane/ngx-datatable/assets/icons.css';
+
+html, body { 
+    font-family: Roboto, Arial, sans-serif;
+    margin: 0;
+}
+
+table {
+    width: 100vw;
+}
+
+.mat-row {
+    height: 24px !important;
+}
+
+tr.example-detail-row {
+    height: 0 !important;
+}
+
+.example-element-diagram {
+    font-weight: lighter;
+    height: 40px;
+    padding: 8px;
+    margin: 8px;
+}
+
+.example-element-detail {
+    overflow: hidden;
+    display: flex;
+}
+
+.mat-divider-vertical {
+    border-right-color: rgba(0,0,0,0.2) !important;
+}
+
+.mat-divider.mat-divider-vertical {
+    border-top: 0px;
+    border-right-width: 0.5px;
+    border-right-color: rgba(150,150,150,0.6) !important;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+    background:#dedede;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+}
+
+.toBold{
+    font-weight: 600;
+}
