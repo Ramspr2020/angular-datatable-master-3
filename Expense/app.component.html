@@ -1,0 +1,22 @@
+<!--<div style="height: calc(100vh - 50px); display: flex">
+    <div style="flex: 1">
+        <ag-grid-angular #agGrid class="ag-theme-balham" style="width: 100%; height: 95%;" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [autoGroupColumnDef]="autoGroupColumnDef" [getRowNodeId]="getRowNodeId" #grid [gridOptions]="gridOptions">
+        </ag-grid-angular>
+    </div>
+</div>-->
+<div style="height: calc(100vh - 50px);">
+    <ag-grid-angular #agGrid class="ag-theme-balham" style="width: 100%; height: 95%;" [rowData]="rowData" [columnDefs]="columnDefs" [defaultColDef]="defaultColDef" [getRowNodeId]="getRowNodeId" #grid [gridOptions]="gridOptions">
+    </ag-grid-angular>
+</div>
+<div class="outer-div">
+    <div class="button-bar">
+        <button (click)="saveDatatable()">Save / Submit</button>
+    </div>
+</div>
+<!--[autoGroupColumnDef]="autoGroupColumnDef"-->
+
+<!--<div class="text-center">
+    <button type="button" class="button" (click)="saveDatatable()" style="margin-right:10px"> Save / Submit</button>
+</div>-->
+
+<!--style="width: 100%; height: 95%;"-->

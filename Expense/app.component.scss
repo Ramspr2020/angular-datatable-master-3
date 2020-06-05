@@ -1,0 +1,26 @@
+.ag-theme-alpine {
+    height: 100%;
+    width: 100%;
+}
+
+@mixin button($padding:10px 20px, $font-size:16px, $border-radius:1px) {
+    padding: $padding;
+    display: inline-block;
+    border-radius: $border-radius;
+    font-size: $font-size;
+    align-items: center;
+}
+
+.button {
+    @include button;
+}
+
+.outer-div {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.button-bar {
+    padding-bottom: 4px;
+}
