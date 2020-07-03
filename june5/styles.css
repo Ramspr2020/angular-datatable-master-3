@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+
+#mainTable {
+    font-size: 12px;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+}
+
+td,
+th {
+    /*border: 1px solid #dddddd;*/
+    border: 1px solid black;
+    text-align: left;
+    padding: 2px;
+    min-inline-size: 138px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+tr {
+    row-gap: 20px;
+}
+
+.button {
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}

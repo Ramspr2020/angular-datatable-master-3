@@ -1,0 +1,443 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h2 style="text-align: center;">Expense Details</h2>
+    <div style="overflow-x:auto;">
+        <ng-container id="header">
+            <table id="mainTable" style="float:left">
+                <tr>
+                    <th></th>
+                    <th>Totals (Excl GC/OCP)</th>
+                    <th>MA WC Alloc</th>
+                    <th>FL WC Alloc</th>
+                    <th>All Other Expenses</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Workup #</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>0</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>LOB</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Workers Compensation</td>
+                    <td>Workers Compensation</td>
+                </tr>
+                <tr>
+                    <td>Segment Entity Name</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>WC Deductible / Retro</td>
+                    <td>WC SIR</td>
+                </tr>
+                <tr>
+                    <td>Primary Layer Limit</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>4000000</td>
+                    <td>500000</td>
+                </tr>
+                <tr>
+                    <td>Occurence Limit</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Statutory</td>
+                    <td>Statutory</td>
+                </tr>
+                <tr>
+                    <td>Exposure</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>13906336666</td>
+                    <td>322006366</td>
+                </tr>
+                <tr>
+                    <td>Exposure Type</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>WC Payroll</td>
+                    <td>WC Payroll</td>
+                </tr>
+                <tr>
+                    <td>Sub-Type</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Countrywide</td>
+                    <td>Countrywide</td>
+                </tr>
+                <tr>
+                    <td>State Exception</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>FL</td>
+                    <td>PA</td>
+                </tr>
+                <tr>
+                    <td>Coverage</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Plan</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Losspick@250000</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>1000000</td>
+                    <td>2000000</td>
+                </tr>
+                <ng-container>
+                    <tr class="excess" (click)="excessExpanded = !excessExpanded">
+                        <td> {{ excessExpanded ? '&ndash;' : '+'}} Excess Premium (System Allocated)</td>
+                        <td id="excessAllocation">1870537</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="excessExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Excess Premium (UW Selected)</td>
+                            <td><input id="excessUW" #name type="text" name="col1" class="col1" length="20" placeholder="0" [(ngModel)]="excessUW" required (keyup)="onExcessUWChange(excessUW)" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" placeholder="0" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" placeholder="0" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" placeholder="0" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" placeholder="0" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" placeholder="0" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Excess Premium (Variance)</td>
+                            <td>{{excessVariance}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Excess Premium (Variance %)</td>
+                            <td>{{excessVariancePercentage}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="aggIns" (click)="aggInsuranceExpanded = !aggInsuranceExpanded">
+                        <td> {{ aggInsuranceExpanded ? '&ndash;' : '+'}} Aggregate Insurance Charge (System Allocated)</td>
+                        <td id="aggInsAllocation">12000000</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="aggInsuranceExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Aggregate Insurance Charge (UW Selected)</td>
+                            <td><input id="aggInsUW" #name type="text" name="col1" class="col1" length="20" placeholder="0" [(ngModel)]="aggInsUW" required (keyup)="onAggInsuranceUWChange(aggInsUW)" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Aggregate Insurance Charge (Variance)</td>
+                            <td>{{aggInsVariance}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Aggregate Insurance Charge (Variance %)</td>
+                            <td>{{aggInsVariancePercentage}}</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="excess" (click)="gaExpanded = !gaExpanded">
+                        <td> {{ gaExpanded ? '&ndash;' : '+'}} General & Administration (System Allocated)</td>
+                        <td id="gaAllocation"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="gaExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;General & Administration (UW Selected)</td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;General & Administration (Variance)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;General & Administration (Variance %)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="excess" (click)="claimsExpanded = !claimsExpanded">
+                        <td> {{ claimsExpanded ? '&ndash;' : '+'}} Claims Supervision (System Allocated)</td>
+                        <td id="claimsAllocation"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="claimsExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Claims Supervision (UW Selected)</td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Claims Supervision (Variance)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Claims Supervision (Variance %)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="excess" (click)="intelExpanded = !intelExpanded">
+                        <td> {{ intelExpanded ? '&ndash;' : '+'}} Intellirisk (System Allocated)</td>
+                        <td id="intelAllocation"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="intelExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Intellirisk (UW Selected)</td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Intellirisk (Variance)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Intellirisk (Variance %)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="excess" (click)="basicExpanded = !basicExpanded">
+                        <td> {{ basicExpanded ? '&ndash;' : '+'}} Basic Loss Control (System Allocated)</td>
+                        <td id="basicAllocation"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="basicExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Basic Loss Control (UW Selected)</td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Basic Loss Control (Variance)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Basic Loss Control (Variance %)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="excess" (click)="captiveExpanded = !captiveExpanded">
+                        <td> {{ captiveExpanded ? '&ndash;' : '+'}} Captive Management Fee (System Allocated)</td>
+                        <td id="captiveAllocation"></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="captiveExpanded">
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Captive Management Fee (UW Selected)</td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                            <td><input type="text" name="col1" class="col1" length="20" /></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Captive Management Fee (Variance)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="excess">
+                            <td>&nbsp;&nbsp;&nbsp;Captive Management Fee (Variance %)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+                <ng-container>
+                    <tr class="totals" (click)="totalExpanded = !totalExpanded">
+                        <td> {{ totalExpanded ? '&ndash;' : '+'}} Gen Expense Total</td>
+                        <td>{{ totalPremium }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <ng-container *ngIf="totalExpanded">
+                        <tr class="totals">
+                            <td>&nbsp;&nbsp;&nbsp;Total Gen Expense (UW Selected)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr class="totals">
+                            <td>&nbsp;&nbsp;&nbsp;Total Gen Expense (Variance)</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </ng-container>
+                </ng-container>
+            </table>
+        </ng-container>
+    </div>
+
+    <button type="button" class="btn btn-outline-secondary"> Submit / Save </button>
+</body>
